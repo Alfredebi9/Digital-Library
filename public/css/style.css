@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none !important;
+  list-style: none;
+}
+body {
+  background-color: #f6f6f6 !important;
+}
+
+:root {
+  --primaryColor: #5a3f90;
+  --background: linear-gradient(90deg, #5a3f90, #8e44ad);
+  --whiteColor: #fff;
+  --textDark: #333;
+  --textGrey: #898686;
+  --hoverColor: #ffc107;
+}
+/* start of fonts */
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.merriweather-heading {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+}
+.playfair {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+.lobster {
+  font-family: "Lobster", sans-serif;
+}
+/* end of fonts */
+
+.bgColor {
+  background: var(--background);
+}
+
+.textLight {
+  color: var(--whiteColor);
+}
+.textDark {
+  color: var(--textDark);
+}
+.textGrey {
+  color: var(--textGrey);
+}
+.textPurple {
+  color: var(--primaryColor);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* navbar */
+input:focus,
+input:active,
+select:focus,
+select:active {
+  border: none !important;
+  outline: none !important;
+}
+
+.navbar-brand > img {
+  max-height: 30px;
+  width: auto;
+}
+.search-container input::placeholder {
+  font-size: 0.6rem;
+}
+
+/* hero section */
+.small-text {
+  font-size: 0.6rem;
+}
+.catalog-btn {
+  width: 10rem;
+}
+
+/* our service */
+.service-section {
+  background: url("../img/beatriz-perez-moya-XN4T2PVUUgk-unsplash.webp")
+    no-repeat center/cover;
+  background-attachment: fixed;
+}
+
+/* contact-us */
+.contact-icon-container {
+  width: 3.2rem;
+  aspect-ratio: 1;
+}
+
+.quick-link:hover {
+  color: var(--hoverColor) !important;
+}
+
+footer .fa-lg:hover {
+  color: var(--hoverColor);
+}
+.footer-brand > img {
+  max-height: 45px;
+  width: auto;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

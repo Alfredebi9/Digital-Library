@@ -1,0 +1,155 @@
+<!-- admin-messages.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Messages</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .message-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .message-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .unread {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0d6efd;
+        }
+        .reply-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <button id="logoutBtn" class="btn btn-outline-light">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="mb-4">Received Messages</h2>
+        <div id="loading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div id="messagesList" class="row g-4"></div>
+    </div>
+
+    <!-- Message Template -->
+    <template id="messageTemplate">
+        <div class="col-12">
+            <div class="card message-card mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-1"></h5>
+                            <p class="card-subtitle mb-2 text-muted"></p>
+                            <p class="card-text text-muted small mb-0"></p>
+                        </div>
+                        <span class="badge bg-primary">New</span>
+                    </div>
+                    <div class="reply-section mt-3">
+                        <div class="original-message bg-light p-3 mb-3 rounded"></div>
+                        <textarea class="form-control mb-2" placeholder="Write your reply..." rows="3"></textarea>
+                        <button class="btn btn-primary btn-sm send-reply">Send Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check admin authentication
+            const token = localStorage.getItem('token');
+            if (!token) window.location.href = '/login';
+
+            // Fetch messages
+            try {
+                const response = await fetch('/api/admin/messages', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (!response.ok) throw new Error('Unauthorized');
+                
+                const messages = await response.json();
+                displayMessages(messages);
+            } catch (error) {
+                window.location.href = '/login';
+            }
+
+            // Logout handler
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                localStorage.removeItem('token');
+                window.location.href = '/login';
+            });
+        });
+
+        function displayMessages(messages) {
+            const template = document.getElementById('messageTemplate');
+            const container = document.getElementById('messagesList');
+            document.getElementById('loading').remove();
+
+            messages.forEach(msg => {
+                const clone = template.content.cloneNode(true);
+                const card = clone.querySelector('.card');
+                if (!msg.read) card.classList.add('unread');
+
+                clone.querySelector('.card-title').textContent = msg.subject;
+                clone.querySelector('.card-subtitle').textContent = `From: ${msg.name} <${msg.email}>`;
+                clone.querySelector('.card-text').textContent = 
+                    new Date(msg.createdAt).toLocaleString();
+                clone.querySelector('.original-message').textContent = msg.message;
+
+                card.addEventListener('click', () => {
+                    card.querySelector('.reply-section').style.display = 'block';
+                    card.classList.remove('unread');
+                    markAsRead(msg._id);
+                });
+
+                clone.querySelector('.send-reply').addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    const replyText = e.target.previousElementSibling.value;
+                    if (!replyText) return;
+
+                    try {
+                        await fetch(`/api/admin/reply/${msg._id}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                            },
+                            body: JSON.stringify({ reply: replyText })
+                        });
+                        alert('Reply sent successfully!');
+                        e.target.previousElementSibling.value = '';
+                    } catch (error) {
+                        alert('Error sending reply');
+                    }
+                });
+
+                container.appendChild(clone);
+            });
+        }
+
+        async function markAsRead(messageId) {
+            try {
+                await fetch(`/api/admin/messages/${messageId}/read`, {
+                    method: 'PATCH',
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+            } catch (error) {
+                console.error('Error marking as read:', error);
+            }
+        }
+    </script>
+</body>
+</html>

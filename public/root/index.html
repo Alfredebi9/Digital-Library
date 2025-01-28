@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSLIT</title>
+  <!-- FONTS STYLE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- css style -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- fontawsome style -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css" />
+
+  <!-- BOOTSTRAP STYLE -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- NAVBAR BEGIN -->
+  <header class="bgColor sticky-top">
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid p-2">
+        <a href="/" class="navbar-brand">
+          <img src="/img/logo-white.webp" alt="" class="img-fluid rounded-top" />
+        </a>
+        <button class="navbar-toggler nav-btn shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse merriweather-heading" id="navbarSupportedContent">
+          <!-- Right Link -->
+          <ul class="navbar-nav ms-auto d-flex r">
+            <!-- catalog -->
+            <li class="nav-item">
+              <a href="/catalog" class="nav-link text-light">Catalog</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link text-light">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact-us" class="nav-link text-light">Contact Us</a>
+            </li>
+
+            <!-- Profile Link -->
+            <li class="nav-item d-none" id="profile">
+              <p class="nav-link text-light d-flex align-items-center">
+                <i class="fa-solid fa-user me-1"></i>
+                <span class="nav-link text-light p-0" id="usernameDisplay"></span>
+              </p>
+            </li>
+
+            <!-- Auth Links -->
+            <li class="nav-item" id="authLinks">
+              <a class="nav-link text-light" href="/login">
+                <i class="fa-solid fa-sign-in-alt me-1"></i> Sign In / Sign Up
+              </a>
+            </li>
+
+            <!-- Logout Link -->
+            <li class="nav-item d-none" id="logoutLink">
+              <a class="nav-link text-light" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- NAVBAR END -->
+  <main>
+    <!-- hero section -->
+    <section class="container py-5">
+      <div class="row align-items-center g-5">
+        <!-- left-content -->
+        <div class="col-12 col-md-5">
+          <h3 class="book-title textDark merriweather-heading">
+            Welcome to UNN
+            <span class="fst-italic textPurple text-nowrap playfair">Computer Science</span>
+            Library and Information Technology
+            <span class="fst-italic textPurple text-nowrap playfair">(CSLIT)</span>
+            <span class="mb-0 fst-italic textPurple text-nowrap playfair" id="username"></span>
+          </h3>
+          <p class="playfair book-desc py-2">
+            Access and explore a wide range of academic resources, journals, and research materials.
+          </p>
+          <a href="/catalog"
+            class="btn text-light catalog-btn border-0 px-4 py-2 d-block mt-3 rounded-5 bgColor textLight">
+            Explore Catalog
+          </a>
+        </div>
+        <!-- right-content -->
+        <div class="col-12 col-md-6 ms-auto">
+          <div class="row">
+            <div class="col-6">
+              <div class="card border-0">
+                <img src="/img/jaredd-craig-HH4WBGNyltc-unsplash.webp" alt="img cover" class="rounded-2 img-fluid">
+              </div>
+            </div>
+            <div class="col-6 ps-0 my-auto">
+              <div class="card border-0 rounded-2 gap-2">
+                <img src="/img/susan-q-yin-2JIvboGLeho-unsplash.webp" alt="img cover" class="rounded-2 img-fluid">
+                <img src="/img/jonas-jacobsson-0FRJ2SCuY4k-unsplash.webp" alt="img cover" class="rounded-2 img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Our service -->
+    <section class="py-5 service-section">
+      <div class="container">
+        <!-- Service Title -->
+        <div class="service-title mb-4 text-center">
+          <p class="playfair fst-italic textGrey m-0">Complete</p>
+          <h6 class="merriweather-heading">Our Services</h6>
+        </div>
+        <!-- service card -->
+        <div class="row g-4">
+          <!-- left-card -->
+          <div class="col-md-4 my-md-auto">
+            <div class="card service-card p-4 shadow border-0">
+              <div class="service-img fs-1 mb-2" aria-hidden="true">
+                📚
+              </div>
+              <div class="card-body">
+                <h6 class="card-title merriweather-heading">Digital Resource Management System</h6>
+                <p class="card-text small-text textGrey"> A Digital Resource Management System (DRMS) is the backbone of
+                  a modern library, enabling seamless organization, storage, and retrieval of digital materials. This
+                  system provides.....</p>
+                <a class="small-text textPurple" href="/about#digital">Read more</a>
+              </div>
+            </div>
+          </div>
+          <!-- center-card -->
+          <div class="col-md-4">
+            <!-- 1  -->
+            <div class="card service-card p-4 shadow border-0 mb-4">
+              <div class="service-img fs-1 mb-2" aria-hidden="true">
+                🔒
+              </div>
+              <div class="card-body">
+                <h6 class="card-title merriweather-heading">User Authentication and Access Control</h6>
+                <p class="card-text small-text textGrey">User Authentication and Access Control systems play a critical
+                  role in securing a library’s digital resources. These mechanisms ensure that only authorized users,
+                  such as ....</p>
+                <a class="small-text textPurple" href="/about#control">Read more</a>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="card service-card p-4 shadow border-0">
+              <div class="service-img fs-1 mb-2" aria-hidden="true">
+                🔍
+              </div>
+              <div class="card-body">
+                <h6 class="card-title merriweather-heading">Advanced Search Features</h6>
+                <p class="card-text small-text textGrey">Advanced Search Features empower users to efficiently navigate
+                  vast repositories of information. These tools often go beyond simple keyword searches by allowing
+                  users to apply....</p>
+                <a class="small-text textPurple" href="/about#search">Read more</a>
+              </div>
+            </div>
+          </div>
+          <!-- right-card-->
+          <div class="col-md-4 my-md-auto">
+            <div class="card service-card p-4 shadow border-0">
+              <div class="service-img fs-1 mb-2" aria-hidden="true">
+                📊
+              </div>
+              <div class="card-body">
+                <h6 class="card-title merriweather-heading">Resource Analytics and Usage Statistics</h6>
+                <p class="card-text small-text textGrey">Resource Analytics and Usage Statistics provide an invaluable
+                  tool for libraries to gain insights into how their resources are being utilized. By tracking user
+                  interactions, such as....</p>
+                <a class="small-text textPurple" href="/about#analysis">Read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <!-- footer -->
+  <footer class="bgColor textLight pt-5 pb-2">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <a href="/" class="footer-brand">
+            <img src="/img/logo-white.webp" alt="" class="img-fluid rounded-top" />
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" class="textLight quick-link">Home</a></li>
+            <li class="mb-2"><a href="/about" class="textLight quick-link">About Us</a></li>
+            <li><a href="/contact-us" class="textLight quick-link">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact Details -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Contact Us</h5>
+          <p class="lh-1 d-inline-flex align-items-center">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:alfredsalvadorfav@zohomail.com" class="textLight text-decoration-none text-break">
+              alfredsalvadorfav@<span class="text-nowrap">gmail.com</span>
+            </a>
+          </p>
+          <p>
+            <i class="fas fa-phone me-2"></i>
+            +2349051637235
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            Nsukka, 410111, Enugu
+          </p>
+        </div>
+        <!-- Social Media -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Follow Us</h5>
+          <div class="d-flex gap-3">
+            <a href="#" class="textLight"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-linkedin fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col text-center">
+          <small>Computer Science Department - Digital Library. &copy; 2024 All rights reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</html>

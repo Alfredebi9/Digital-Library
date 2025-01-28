@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources Overview</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a href="/admin-dashboard" class="navbar-brand">
+        <img src="/img/logo-white.webp" alt="GreenGlow Logo" class="img-fluid rounded-top" />
+      </a>
+      <a href="/admin-dashboard" class="btn btn-outline-light">Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h2 class="text-center">Resources Overview</h2>
+    <!-- Clear Database Button -->
+    <div class="text-center my-4">
+      <button id="clearDatabaseButton" class="btn btn-danger">Clear Database</button>
+    </div>
+    <div class="row g-4 my-4">
+
+      <!-- Borrowed Books Table -->
+      <div class="col-12">
+        <h4 class="text-center">Top Viewed Books</h4>
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Times viewed</th>
+            </tr>
+          </thead>
+          <tbody id="borrowedBooksTable">
+            <!-- Dynamic Content -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="col-12">
+        <h4 class="text-center">Resource Trends</h4>
+        <div class="d-flex justify-content-center">
+          <canvas id="borrowedBooksChart" style="max-width: 1200px;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Confirmation Modal -->  
+<div class="modal" id="confirmClearModal" tabindex="-1" aria-hidden="true">  
+  <div class="modal-dialog">  
+    <div class="modal-content">  
+      <div class="modal-header">  
+        <h5 class="modal-title">Confirm Clear Database</h5>  
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+      </div>  
+      <div class="modal-body">  
+        <p>Are you sure you want to clear the database?</p>  
+      </div>  
+      <div class="modal-footer">  
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>  
+        <button type="button" class="btn btn-danger" id="confirmClearButton">Clear</button>  
+      </div>  
+    </div>  
+  </div>  
+</div>  
+
+<!-- Message Modal -->  
+<div class="modal" id="messageModal" tabindex="-1" aria-hidden="true">  
+  <div class="modal-dialog">  
+    <div class="modal-content">  
+      <div class="modal-header">  
+        <h5 class="modal-title">Message</h5>  
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+      </div>  
+      <div class="modal-body">  
+        <p id="messageContent"></p> <!-- Element to display the message -->  
+      </div>  
+      <div class="modal-footer">  
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+      </div>  
+    </div>  
+  </div>  
+</div>
+
+  <!-- Scripts -->
+  <script src="/js/resourcesOverview.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - CSLIT</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Style -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <style>
+    .about-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/patrick-tomasso-Oaqk7qqNh_c-unsplash.webp');
+      background-size: cover;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="bgColor sticky-top">
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid p-2">
+        <a href="/" class="navbar-brand">
+          <img src="/img/logo-white.webp" alt="" class="img-fluid rounded-top" />
+        </a>
+        <button class="navbar-toggler nav-btn shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse merriweather-heading" id="navbarSupportedContent">
+          <!-- Right Link -->
+          <ul class="navbar-nav ms-auto d-flex r">
+            <!-- catalog -->
+            <li class="nav-item">
+              <a href="/catalog" class="nav-link text-light">Catalog</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link text-light">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact-us" class="nav-link text-light">Contact Us</a>
+            </li>
+
+            <!-- Profile Link -->
+            <li class="nav-item d-none" id="profile">
+              <p class="nav-link text-light d-flex align-items-center">
+                <i class="fa-solid fa-user me-1"></i>
+                <span class="nav-link text-light p-0" id="usernameDisplay"></span>
+              </p>
+            </li>
+
+            <!-- Auth Links -->
+            <li class="nav-item" id="authLinks">
+              <a class="nav-link text-light" href="/login">
+                <i class="fa-solid fa-sign-in-alt me-1"></i> Sign In / Sign Up
+              </a>
+            </li>
+
+            <!-- Logout Link -->
+            <li class="nav-item d-none" id="logoutLink">
+              <a class="nav-link text-light" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="about-header text-center py-5">
+    <div class="container py-5">
+      <h1 class="display-4 mb-4">About Us</h1>
+      <p class="lead">Welcome! We're dedicated to assisting you <span class="fst-italic text-nowrap playfair"
+          id="username"></span>, with all your literary needs.</p>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <main>
+    <section class="py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <!-- Left: Image -->
+          <div class="col-12 col-md-6">
+            <img src="img/susan-q-yin-2JIvboGLeho-unsplash.webp" alt="Library Image"
+              class="img-fluid rounded-2 shadow" />
+          </div>
+          <!-- Right: About Content -->
+          <div class="col-12 col-md-6">
+            <h3 class="merriweather-heading textDark mb-3 textPurple">About CSLIT</h3>
+            <p class="text-muted playfair">
+              At <strong>Computer Science Library and Information Technology <span
+                  class="textPurple">(CSLIT)</span></strong>, we are passionate about
+              making academic resources accessible to students,
+              researchers, and educators. Our platform is dedicated to hosting a diverse range of Computer based
+              resources,
+              from research papers and textbooks to collaborative learning tools.
+            </p>
+            <p class="text-muted playfair">
+              Built and managed by the <span class="textPurple">Department of Computer Science, UNN</span>, the CSLT
+              project aims to foster academic excellence by bridging the gap between knowledge seekers and the wealth of
+              resources available in the digital age.
+            </p>
+            <a href="/catalog" class="btn bgColor text-light px-4 py-2 rounded-5">Explore Our Catalog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row text-center mb-4">
+          <div class="col">
+            <h4 class="merriweather-heading textDark">Our Mission and Vision</h4>
+          </div>
+        </div>
+        <div class="row g-5">
+          <!-- Mission -->
+          <div class="col-md-6">
+            <div class="card border-0 shadow p-4">
+              <h5 class="merriweather-heading textPurple">Our Mission</h5>
+              <p class="text-muted playfair">
+                To empower students, researchers, and educators with seamless access to digital academic resources that
+                inspire innovation, learning, and discovery.
+              </p>
+            </div>
+          </div>
+          <!-- Vision -->
+          <div class="col-md-6">
+            <div class="card border-0 shadow p-4">
+              <h5 class="merriweather-heading textPurple">Our Vision</h5>
+              <p class="text-muted playfair">
+                To be a leading digital library recognized for its innovation, inclusivity, and impact in advancing
+                global education and research excellence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row text-center mb-4">
+          <div class="col">
+            <h4 class="merriweather-heading textDark">Our Services</h4>
+            <p class="text-muted playfair">We offer a range of services to enhance your digital library experience.
+              Explore how we empower students, researchers, and educators.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <!-- Digital Resource Management -->
+          <div class="col-12" id="digital">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">📚</div>
+              <h6 class="merriweather-heading">Digital Resource Management System</h6>
+              <p class="text-muted playfair">
+                A Digital Resource Management System (DRMS) is the backbone of a modern library, enabling seamless
+                organization, storage, and retrieval of digital materials. This system provides libraries with tools to
+                catalog resources, manage metadata, and track usage. DRMS platforms often support various media types,
+                from eBooks and research papers to videos and images. They also enable integration with external
+                databases and indexing systems, enhancing the library's overall accessibility. Moreover, features like
+                version control, automated workflows, and user-friendly interfaces ensure efficient management of
+                resources. A well-implemented DRMS not only optimizes resource management but also enhances the user
+                experience by providing a structured and intuitive way to explore digital collections.
+              </p>
+            </div>
+          </div>
+
+          <!-- User Authentication and Access Control -->
+          <div class="col-12" id="control">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">🔒</div>
+              <h6 class="merriweather-heading">User Authentication and Access Control</h6>
+              <p class="text-muted playfair">
+                User Authentication and Access Control systems play a critical role in securing a library’s digital
+                resources. These mechanisms ensure that only authorized users, such as students, faculty, or registered
+                members, can access premium or restricted materials. Authentication methods can range from traditional
+                username-password combinations to more robust systems like single sign-on (SSO), biometric verification,
+                or two-factor authentication. Access control extends to managing permissions for different user roles,
+                ensuring administrators, researchers, and casual users have appropriate levels of access. By
+                implementing these systems, libraries protect intellectual property, prevent unauthorized access, and
+                maintain compliance with copyright and licensing agreements.
+              </p>
+            </div>
+          </div>
+
+          <!-- Collaborative Learning Tools -->
+          <div class="col-12">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">👥</div>
+              <h6 class="merriweather-heading">Collaborative Learning Tools</h6>
+              <p class="text-muted playfair">
+                Our platform fosters collaboration through features like group discussions, shared annotations, and
+                real-time peer reviews. These tools enable students and educators to work together, share insights, and
+                enhance their learning experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- Resource Analytics -->
+          <div class="col-12" id="analysis">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">📊</div>
+              <h6 class="merriweather-heading">Resource Analytics and Usage Statistics</h6>
+              <p class="text-muted playfair">
+                Resource Analytics and Usage Statistics provide an invaluable tool for libraries to gain insights into
+                how their resources are being utilized. By tracking user interactions, such as searches, downloads, and
+                time spent on specific resources, libraries can better understand trends in user behavior. This
+                information helps in making informed decisions about resource allocation, subscription renewals, or
+                discontinuing underutilized services. Furthermore, usage data can highlight popular topics or materials,
+                aiding in tailoring library offerings to user needs. Advanced analytics often include visualization
+                tools that present the data in comprehensible formats, such as graphs or dashboards, making it easier to
+                interpret and act upon.
+              </p>
+            </div>
+          </div>
+
+          <!-- Advanced Search Features -->
+          <div class="col-12" id="search">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">🔍</div>
+              <h6 class="merriweather-heading">Advanced Search Features</h6>
+              <p class="text-muted playfair">
+                Advanced Search Features empower users to efficiently navigate vast repositories of information. These
+                tools often go beyond simple keyword searches by allowing users to apply filters such as date ranges,
+                resource types, subject categories, and language. Additionally, many systems incorporate Boolean
+                operators (AND, OR, NOT) and relevance-ranking algorithms to refine results further. Some advanced
+                search capabilities even leverage artificial intelligence or natural language processing to understand
+                user queries better and suggest related terms or concepts. By providing a user-friendly and highly
+                customizable search experience, libraries ensure patrons can locate the exact information they need with
+                minimal effort and time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Core Values -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center mb-4">
+          <div class="col">
+            <h4 class="merriweather-heading textDark">Our Core Values</h4>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">🌐</div>
+              <h6 class="merriweather-heading">Accessibility</h6>
+              <p class="text-muted playfair">Ensuring resources are accessible to all students, researchers, and
+                educators.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">📚</div>
+              <h6 class="merriweather-heading">Knowledge</h6>
+              <p class="text-muted playfair">Promoting a culture of lifelong learning and intellectual curiosity.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-0 shadow p-4">
+              <div class="fs-1 textPurple mb-3" aria-hidden="true">🤝</div>
+              <h6 class="merriweather-heading">Collaboration</h6>
+              <p class="text-muted playfair">Encouraging collaboration among students, educators, and institutions to
+                foster shared success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="bgColor textLight pt-5 pb-2">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <a href="/" class="footer-brand">
+            <img src="/img/logo-white.webp" alt="" class="img-fluid rounded-top" />
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" class="textLight quick-link">Home</a></li>
+            <li class="mb-2"><a href="/about" class="textLight quick-link">About Us</a></li>
+            <li><a href="/contact-us" class="textLight quick-link">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact Details -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Contact Us</h5>
+          <p class="lh-1 d-inline-flex align-items-center">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:alfredsalvadorfav@zohomail.com" class="textLight text-decoration-none text-break">
+              alfredsalvadorfav@<span class="text-nowrap">gmail.com</span>
+            </a>
+          </p>
+          <p>
+            <i class="fas fa-phone me-2"></i>
+            +2349051637235
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            Nsukka, 410111, Enugu
+          </p>
+        </div>
+        <!-- Social Media -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-uppercase merriweather-heading mb-3">Follow Us</h5>
+          <div class="d-flex gap-3">
+            <a href="#" class="textLight"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="textLight"><i class="fab fa-linkedin fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col text-center">
+          <small>Computer Science Department - Digital Library. &copy; 2024 All rights reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
