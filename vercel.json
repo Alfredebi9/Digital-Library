@@ -18,6 +18,27 @@
       "headers": {
         "Cache-Control": "s-maxage=86400, immutable"
       }
+    },
+    {
+      "src": "/img/(.*)",
+      "dest": "/public/root/img/$1",
+      "headers": {
+        "Cache-Control": "s-maxage=86400, immutable"
+      }
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/root/css/$1",
+      "headers": {
+        "Cache-Control": "s-maxage=86400, immutable"
+      }
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/root/js/$1",
+      "headers": {
+        "Cache-Control": "s-maxage=86400, immutable"
+      }
     }
   ]
 }
