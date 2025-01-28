@@ -36,6 +36,15 @@ app.use((req, res, next) => {
 // Serve static files (CSS, JS, Images, HTML)
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// Serve static assets from public directory
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/img', express.static(__dirname + '/public/img'));
+
+// Example for admin routes:
+app.get('/admin/*', (req, res) => {
+  res.sendFile(__dirname + '/adminDashboard.html');
+});
 
 // Connect to MongoDB
 connectDB();

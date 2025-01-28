@@ -1,44 +1,27 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/public/root/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=3600, stale-while-revalidate"
-      }
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/uploads/(.*)",
-      "dest": "/uploads/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=86400, immutable"
-      }
-    },
-    {
-      "src": "/img/(.*)",
-      "dest": "/public/root/img/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=86400, immutable"
-      }
-    },
-    {
       "src": "/css/(.*)",
-      "dest": "/public/root/css/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=86400, immutable"
-      }
+      "dest": "/public/css/$1"
     },
     {
       "src": "/js/(.*)",
-      "dest": "/public/root/js/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=86400, immutable"
-      }
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/img/(.*)",
+      "dest": "/public/img/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
