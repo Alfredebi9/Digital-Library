@@ -48,6 +48,8 @@ const htmlRoutes = [
   },
   { route: "/contact-us", file: "root/user/contactUs.html", protected: true },
   { route: "/about", file: "root/user/about.html", protected: true },
+  { route: "/forget-password", file: "root/forget-password.html", protected: true },
+  { route: "/reset-password", file: "root/reset-password.html", protected: true },
 
   // Admin routes
   {

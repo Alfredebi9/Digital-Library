@@ -86,6 +86,8 @@ const userSchema = new mongoose.Schema({
   avatar: { type: String, default: "/default-avatar.png" },
   bookmarks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Book" }],
   createdAt: { type: Date, default: Date.now },
+  resetToken: String,
+  resetTokenExpiration: Date,
   admin: {
     type: Boolean,
     default: false,

@@ -36,15 +36,6 @@ app.use((req, res, next) => {
 // Serve static files (CSS, JS, Images, HTML)
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// Serve static assets from public directory
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js', express.static(__dirname + '/public/js'));
-app.use('/img', express.static(__dirname + '/public/img'));
-
-// Example for admin routes:
-app.get('/admin/*', (req, res) => {
-  res.sendFile(__dirname + '/adminDashboard.html');
-});
 
 // Connect to MongoDB
 connectDB();
@@ -273,6 +264,81 @@ app.post("/api/contact", async (req, res) => {
     });
   }
 });
+
+// Forgot Password Route
+// app.post("/api/forgot-password", async (req, res) => {
+//   const { email } = req.body;
+
+//   try {
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     // Generate reset token and expiration
+//     const resetToken = crypto.randomBytes(20).toString("hex");
+//     const resetTokenExpiration = Date.now() + 3600000; // 1 hour
+
+//     // Save token to user document
+//     user.resetToken = resetToken;
+//     user.resetTokenExpiration = resetTokenExpiration;
+//     await user.save();
+
+//     // Send email with reset link
+//     const resetLink = `http://localhost:3000/reset-password?token=${resetToken}`;
+//     await transporter.sendMail({
+//       from: `UNN Library of Computer Science <${process.env.EMAIL_USER}>`,
+//       to: email,
+//       subject: "Password Reset Request",
+//       html: `
+//         <p>You requested a password reset. Click the link below to set a new password:</p>
+//         <a href="${resetLink}">Reset Password</a>
+//         <p>This link will expire in 1 hour.</p>
+//       `,
+//     });
+
+//     res.json({ message: "Password reset link sent to your email" });
+//   } catch (error) {
+//     console.error("Password reset error:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// // Reset Password Route
+// app.post("/api/reset-password", async (req, res) => {
+//   const { token, password } = req.body;
+
+//   try {
+//     const user = await User.findOne({
+//       resetToken: token,
+//       resetTokenExpiration: { $gt: Date.now() },
+//     });
+
+//     if (!user) {
+//       return res.status(400).json({ message: "Invalid or expired token" });
+//     }
+
+//     // Validate new password
+//     const passwordPattern =
+//       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+//     if (!passwordPattern.test(password)) {
+//       return res.status(400).json({
+//         message: `Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.`,
+//       });
+//     }
+
+//     // Update password and clear reset token
+//     user.password = await bcrypt.hash(password, 10);
+//     user.resetToken = undefined;
+//     user.resetTokenExpiration = undefined;
+//     await user.save();
+
+//     res.json({ message: "Password reset successful" });
+//   } catch (error) {
+//     console.error("Password reset error:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
 
 // Middleware (should be defined before routes)
 const requireAdmin = async (req, res, next) => {

@@ -61,7 +61,7 @@
             <input type="password" class="form-control bg-black border-secondary" id="password" placeholder="Your password" required>
           </div>
           <div class="mb-4">
-            <a class="textPurple" href="/register">Forgotten password?</a>
+            <a class="textPurple" href="/forget-password">Forgotten password?</a>
           </div>
           <!-- continue button -->
           <button type="submit" class="btn bgColor text-light fs-3 fw-bold w-100 my-3">Log in</button>
@@ -80,6 +80,9 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
+   document.getElementById('email').addEventListener('input', function(e) {
+    this.value = this.value.toLowerCase();
+  });
  document.getElementById('loginForm').addEventListener('submit', async function (event) {
   event.preventDefault();
 
