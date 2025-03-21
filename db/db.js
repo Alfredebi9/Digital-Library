@@ -95,6 +95,6 @@ const userSchema = new mongoose.Schema({
 });
 
 // Create the User model using the auth connection
-const User = authConnection.model("User", userSchema, "users");
+const User = authConnection?.model("User", userSchema, "users") || null;
 
 module.exports = { connectDB, BookView, UploadedBook, User, Contact, Book };

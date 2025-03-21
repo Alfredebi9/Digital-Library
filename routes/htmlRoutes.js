@@ -4,10 +4,10 @@ const router = express.Router();
 const {User} = require("../db/db");
 
 function requireAuth(req, res, next) {
-  if (req.session.authenticated) {
-    next();
+  if (!req.session.userId) {
+    return res.redirect('/login');
   } else {
-    res.redirect("/login");
+    next();
   }
 }
 
@@ -41,6 +41,8 @@ const htmlRoutes = [
   { route: "/", file: "root/index.html", protected: true },
   { route: "/catalog", file: "root/user/catalog.html", protected: true },
   { route: "/resource", file: "root/user/resource.html", protected: true },
+  { route: "/forget-password", file: "root/forget-password.html"},
+  { route: "/reset-password", file: "root/reset-password.html" },
   {
     route: "/user-profile",
     file: "root/user/userProfile.html",
