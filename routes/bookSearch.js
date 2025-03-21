@@ -12,7 +12,7 @@ const router = express.Router();
 // Fetch books from Open Library API
 router.get("/api/books/search", async (req, res) => {
   const { query, page = 1, limit = 10 } = req.query;
-  const searchTerm = query || "computer science"; // Default to 'computer science' if no query is provided
+  const searchTerm = query || "computer"; // Default to 'computer science' if no query is provided
   console.log(`Search Term: ${searchTerm}, Page: ${page}, Limit: ${limit}`);
 
   try {

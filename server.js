@@ -285,15 +285,15 @@ app.post("/api/forgot-password", async (req, res) => {
       from: `UNN Library <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Password Reset",
-      html: `Reset link: <a href="${resetLink}">${resetLink}</a>`
+      html: `Reset link: <a href="${resetLink}">${resetLink}</a>`,
     });
 
     res.json({ message: "Reset link sent" });
   } catch (error) {
     console.error("Password reset error:", error);
-    res.status(500).json({ 
+    res.status(500).json({
       message: "Error sending reset link",
-      error: error.message // Send error details in development
+      error: error.message, // Send error details in development
     });
   }
 });
@@ -306,20 +306,22 @@ app.post("/api/reset-password", async (req, res) => {
     // Find user with valid token
     const user = await User.findOne({
       resetToken: token,
-      resetTokenExpiration: { $gt: new Date() } // Compare Date objects
+      resetTokenExpiration: { $gt: new Date() }, // Compare Date objects
     });
 
     if (!user) {
-      return res.status(400).json({ 
-        message: "Invalid or expired reset token" 
+      return res.status(400).json({
+        message: "Invalid or expired reset token",
       });
     }
 
     // Validate password format
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+    const passwordPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
     if (!passwordPattern.test(password)) {
       return res.status(400).json({
-        message: "Password must contain: 8+ characters, a uppercase, a lowercase, a number, and a special character"
+        message:
+          "Password must contain: 8+ characters, a uppercase, a lowercase, a number, and a special character",
       });
     }
 
@@ -329,19 +331,20 @@ app.post("/api/reset-password", async (req, res) => {
     user.resetTokenExpiration = undefined;
     await user.save();
 
-    res.json({ 
+    res.json({
       success: true,
-      message: "Password reset successful. You can now login with your new password.",
-      redirect: "/login"
+      message:
+        "Password reset successful. You can now login with your new password.",
+      redirect: "/login",
     });
-
   } catch (error) {
     console.error("Password reset error:", error);
     res.status(500).json({
       success: false,
-      message: process.env.NODE_ENV === 'production' 
-        ? "Internal server error" 
-        : error.message
+      message:
+        process.env.NODE_ENV === "production"
+          ? "Internal server error"
+          : error.message,
     });
   }
 });
